@@ -41,13 +41,22 @@ Accès :
 
 ## Configuration MariaDB (binlog ROW)
 Exemple de configuration :
-```ini
-[mysqld]
-server_id=1
-log_bin=mariadb-bin
-binlog_format=ROW
-expire_logs_days=7
-binlog_row_image=FULL
+```yaml
+databases:
+  - homeassistant
+logins:
+  - password: {PASSWORD_MARIADB}
+    username: {USERNAME_MARIADB}
+rights:
+  - database: homeassistant
+    username: homeassistant
+mariadb_server_args:
+  - "--server-id=10"
+  - "--log-bin=mysql-bin"
+  - "--binlog-format=ROW"
+  - "--expire-logs-days=3"
+  - "--max-binlog-size=100M"
+
 ```
 
 Créer un utilisateur MariaDB avec droits de réplication :
@@ -73,6 +82,7 @@ source .venv/bin/activate    # Linux/macOS
 pip install -r requirements.txt
 set MARIADB_URL=mysql://user:pass@host:3306/homeassistant   # Windows
 export MARIADB_URL=...                                      # Linux/macOS
+cd Backend
 uvicorn script:app --host 0.0.0.0 --port 8000
 ```
 
