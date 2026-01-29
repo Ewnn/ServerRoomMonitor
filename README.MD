@@ -6,6 +6,9 @@ Ce plan illustre l'agencement d'une salle technique informatique (salle serveur)
 ### Plan de la Salle Serveur
 ![Plan Salle Serveur](docs/server_room_plan.png)
 
+### Diagramme d'architecture
+![diagramme architecture](docs/diagrammeArchi.png)
+
 ### Spécificités Techniques à Respecter
 
 #### La Gestion des Flux d'Air (Aéraulique)
