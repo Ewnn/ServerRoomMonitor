@@ -6,7 +6,7 @@
     <span class="status-circle" [style.background-color]="getBackgroundColor()"></span>
   </div>
   <p class="value">{{ temperatureCurrent() !== null ? temperatureCurrent() + '°C' : 'N/A' }}</p>
-  <small style="opacity: 0.7; font-size: 0.8em;">Mise à jour: {{ lastUpdate() }}</small>
+  <small style="opacity: 0.7; font-size: 0.8em; display:block; margin-bottom: 5%;">Mise à jour: {{ lastUpdate() }}</small>
   <button (click)="getTemperatureLogs()">Historique</button>
   <ul *ngIf="showTemperatureLogs()">
     <li *ngFor="let log of temperatureLogs()">
