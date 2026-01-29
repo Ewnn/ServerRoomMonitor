@@ -117,8 +117,7 @@ source .venv/bin/activate    # Linux/macOS
 pip install -r requirements.txt
 set MARIADB_URL=mysql://user:pass@host:3306/homeassistant   # Windows
 export MARIADB_URL=...                                      # Linux/macOS
-cd Backend
-uvicorn script:app --host 0.0.0.0 --port 8000
+docker-compose up --build
 ```
 
 ### Frontend
