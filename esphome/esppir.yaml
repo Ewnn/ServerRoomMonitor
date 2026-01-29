@@ -1,0 +1,48 @@
+esphome:
+  name: espir
+  friendly_name: ESPir
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: {KEY_API_ESPHOME}
+
+ota:
+  - platform: esphome
+    password: {OTA_PASSWORD_ESPHOME}
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Sécurité : Force le WPA2 pour éviter l'avertissement
+  min_auth_mode: WPA2
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Espir Fallback Hotspot"
+    password: {FALLBACK_HOTSPOT_PASSWORD}
+
+captive_portal:
+
+# Configuration du capteur de mouvement (PIR)
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: 4
+      # La plupart des capteurs PIR (HC-SR501, AM312) envoient un signal HIGH (3.3V) quand ils détectent.
+      # Pas besoin de pull-up interne si le capteur envoie du voltage.
+      mode: INPUT
+    name: "Détection Mouvement"
+    device_class: motion
+    # Filtres optionnels (très utile pour les PIR)
+    filters:
+      # Garde l'état "Détecté" actif pendant 5 secondes minimum
+      # Cela évite que le capteur clignote ON/OFF trop vite dans Home Assistant
+      - delayed_off: 5s

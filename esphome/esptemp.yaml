@@ -1,0 +1,44 @@
+esphome:
+  name: esptemp
+  friendly_name: ESPTemp
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: {KEY_API_ESPHOME}
+
+ota:
+  - platform: esphome
+    password: {OTA_PASSWORD_ESPHOME}
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  
+  # Force le mode WPA2 pour éviter l'avertissement de sécurité dans les logs
+  min_auth_mode: WPA2
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esptemp Fallback Hotspot"
+    password: "eAAVlgINBwLr"
+
+captive_portal:
+
+sensor:
+  - platform: dht
+    pin: 
+      number: 4 
+      mode: INPUT_PULLUP
+    model: DHT11
+    temperature:
+      name: "Température"
+    humidity:
+      name: "Humidité"
+    update_interval: 60s
