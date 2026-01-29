@@ -65,7 +65,7 @@ Surveillance temps réel d’une salle serveur à partir d’ESPHome/Home Assist
 - Node.js 20+ et npm 10+ (si exécution locale).
 - Docker et Docker Compose (recommandé).
 
-## Démarrage rapide avec Docker
+<!-- ## Démarrage rapide avec Docker
 1. Renseigner la variable `MARIADB_URL` dans [.env.docker](.env.docker).
 2. Démarrer les services :
    ```bash
@@ -75,7 +75,7 @@ Surveillance temps réel d’une salle serveur à partir d’ESPHome/Home Assist
 Accès :
 - Frontend : http://localhost
 - Backend : http://localhost:8000
-- Docs API : http://localhost:8000/docs
+- Docs API : http://localhost:8000/docs -->
 
 ## Configuration MariaDB (binlog ROW)
 Exemple de configuration :
@@ -108,18 +108,26 @@ FLUSH PRIVILEGES;
 ## Variables d’environnement
 | Variable | Description | Exemple |
 | --- | --- | --- |
-| `MARIADB_URL` | URL de connexion MariaDB | `mysql://user:pass@host:3306/homeassistant` |
+| `MARIADB_URL` | URL de connexion MariaDB | `mysql://{USERNAME_MARIADB}:{PASSWORD_MARIADB}@{IP_HOMEASSISTANT}:3306/homeassistant` |
+
+modifier cette variable dans [.env.docker](.env.docker)
 
 ## Exécution locale (optionnel)
 ### Backend
 ```bash
 cd Backend
 python -m venv .venv
+
 source .venv/bin/activate    # Linux/macOS
+# ou
 .venv\Scripts\activate       # Windows
+
 pip install -r requirements.txt
-set MARIADB_URL=mysql://user:pass@host:3306/homeassistant   # Windows
-export MARIADB_URL=...                                      # Linux/macOS
+
+set MARIADB_URL=mysql://{USERNAME_MARIADB}:{PASSWORD_MARIADB}@{IP_HOMEASSISTANT}:3306/homeassistant   # Windows
+# ou 
+export MARIADB_URL=mysql://{USERNAME_MARIADB}:{PASSWORD_MARIADB}@{IP_HOMEASSISTANT}:3306/homeassistant   # Linux/macOS
+
 docker-compose up --build
 ```
 
