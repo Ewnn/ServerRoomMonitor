@@ -1,0 +1,12 @@
+# requirements.txt
+
+# List of required Python packages for the backend
+# Add your packages below
+sqlalchemy
+pymysql
+websockets
+fastapi
+uvicorn
+mysql-replication
+python-dotenv
+

@@ -1,0 +1,88 @@
+.sensor {
+  border: 2px solid #00FFFF; /* Blue neon contour */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #FFFFFF; /* White */
+  color: #000000; /* Black text */
+  box-shadow: 0 0 10px #00FFFF;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 10px #00FFFF);
+}
+
+.sensor h2 {
+  margin-top: 0;
+  color: #00FFFF;
+}
+
+.sensor button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #2F2F2F; /* Anthracite gray */
+  color: white;
+  border: 1px solid #00FFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px; /* Touch-friendly */
+}
+
+.sensor button:hover {
+  background-color: #555;
+}
+
+.sensor ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.sensor li {
+  padding: 8px 10px;
+  border-bottom: 1px solid #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.log-time {
+  font-size: 0.85em;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 10%;
+}
+
+.log-value {
+  font-weight: bold;
+  color: #000000;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.status-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px currentColor;
+}

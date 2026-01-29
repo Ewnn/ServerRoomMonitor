@@ -1,0 +1,30 @@
+h1 {
+  text-align: center;
+  color: #00FFFF; /* Blue neon */
+  text-shadow: 0 0 10px #00FFFF;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.sensors {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .sensors {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+  }
+}

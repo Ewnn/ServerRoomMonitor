@@ -1,0 +1,17 @@
+<div class="sensor">
+  <img src="/assets/capteur-de-mouvement.png" alt="Motion" class="icon">
+  <h2>Capteur Mouvement</h2>
+  <div class="status-indicator">
+    <span>Status:</span>
+    <span class="status-circle" [style.background-color]="getBackgroundColor()"></span>
+  </div>
+  <p class="value">{{ motionCurrent() !== null ? (motionCurrent() ? 'DÉTECTÉ' : 'RIEN') : 'N/A' }}</p>
+  <small style="opacity: 0.7; font-size: 0.8em;">Mise à jour: {{ lastUpdate() }}</small>
+  <button (click)="getMotionLogs()">Historique</button>
+  <ul *ngIf="showMotionLogs()">
+    <li *ngFor="let log of motionLogs()">
+      <span class="log-time">{{ log.time }}</span>
+      <span class="log-value">{{ log.detected ? 'DÉTECTÉ' : 'RIEN' }}</span>
+    </li>
+  </ul>
+</div>
