@@ -8,10 +8,14 @@
   <p class="value">{{ humidityCurrent() !== null ? humidityCurrent() + '%' : 'N/A' }}</p>
   <small style="opacity: 0.7; font-size: 0.8em; display:block; margin-bottom: 5%;">Mise à jour: {{ lastUpdate() }}</small>
   <button (click)="getHumidityLogs()">Historique</button>
+  <button (click)="toggleHumidityChart()">{{ showHumidityChart() ? 'Masquer' : 'Afficher' }} Graphique</button>
   <ul *ngIf="showHumidityLogs()">
     <li *ngFor="let log of humidityLogs()">
       <span class="log-time">{{ log.time }}</span>
       <span class="log-value">{{ log.value }}%</span>
     </li>
   </ul>
+  <div *ngIf="showHumidityChart()" class="chart-container">
+    <canvas #chartCanvas></canvas>
+  </div>
 </div>

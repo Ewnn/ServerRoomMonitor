@@ -8,10 +8,14 @@
   <p class="value">{{ motionCurrent() !== null ? (motionCurrent() ? 'DÉTECTÉ' : 'RIEN') : 'N/A' }}</p>
   <small style="opacity: 0.7; font-size: 0.8em; display:block; margin-bottom: 5%;">Mise à jour: {{ lastUpdate() }}</small>
   <button (click)="getMotionLogs()">Historique</button>
+  <button (click)="toggleMotionChart()">{{ showMotionChart() ? 'Masquer' : 'Afficher' }} Graphique</button>
   <ul *ngIf="showMotionLogs()">
     <li *ngFor="let log of motionLogs()">
       <span class="log-time">{{ log.time }}</span>
       <span class="log-value">{{ log.detected ? 'DÉTECTÉ' : 'RIEN' }}</span>
     </li>
   </ul>
+  <div *ngIf="showMotionChart()" class="chart-container">
+    <canvas #chartCanvas></canvas>
+  </div>
 </div>

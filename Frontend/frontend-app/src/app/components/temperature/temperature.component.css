@@ -84,3 +84,15 @@
   display: inline-block;
   box-shadow: 0 0 10px currentColor;
 }
+
+.chart-container {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.chart-container canvas {
+  max-height: 300px;
+}
